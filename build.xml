@@ -1,0 +1,24 @@
+?xml version="1.0" encoding="UTF-8"?>
+<project name="DesignPatternVisualizer" default="create-jar">
+    <target name="clean">
+        <delete dir="bin"/>
+        <delete file="DesignPatternVisualizer.jar"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="bin" includeantruntime="false">
+            <classpath>
+                <pathelement path="."/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create-jar" depends="compile">
+        <jar destfile="DesignPatternVisualizer.jar" basedir="bin">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
